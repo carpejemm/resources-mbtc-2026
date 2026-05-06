@@ -103,6 +103,12 @@ Work through each activity in your own copy of the repo, and reach out to the in
 
 ---
 
+## Session recordings
+
+- **Day 2 (May 6, 2026)** — [Watch recording](https://drive.google.com/file/d/1DOnBP70g6ObicRyh_AYu21bMCCOSG-Z5/view?usp=sharing)
+
+---
+
 ## Resources & links
 
 - React (official docs) — https://react.dev
