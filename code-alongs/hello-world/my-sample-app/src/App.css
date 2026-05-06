@@ -1,0 +1,17 @@
+.task-container {
+  border: 1px solid red;
+  padding: 10px;
+  margin: 10px;
+}
+
+.container {
+  border: 1px solid blue;
+  padding: 10px;
+  margin: 10px;
+}
+
+.profile-container {
+  border: 1px solid green;
+  padding: 10px;
+  margin-bottom: 100px;
+}

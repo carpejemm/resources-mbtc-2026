@@ -1,0 +1,73 @@
+ol {
+  background-color: blue;
+}
+
+div {
+  font-size: 20px;
+}
+
+p {
+  color: red;
+}
+
+h2 {
+  text-align: center;
+}
+
+span {
+  font-weight: bold;
+  background-color: yellow;
+  padding: 5px;
+  text-decoration: underline;
+}
+
+.container {
+  color: green;
+}
+
+.box {
+  border: 2px solid black;
+  /* This is shorthand for:
+  border-width: 2px;
+  border-style: solid;
+  border-color: black; */
+  padding: 10px;
+  /* This is a shorthand for:
+  padding-top: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px; */
+}
+
+.square {
+  width: 100px;
+  height: 100px;
+  background-color: purple;
+  padding: 10px;
+}
+
+.triangle {
+  width: 0;
+  height: 0;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-bottom: 100px solid orange;
+  font-size: 8px;
+}
+
+#div-cont {
+  background-color: lightgray;
+  padding: 20px;
+}
+
+#tenth-para {
+  color: blue;
+  background-color: lightyellow;
+  /* padding: 10px; */
+  padding-top: 10px;
+  padding-right: 20px;
+  padding-bottom: 10px;
+  padding-left: 30px;
+  border: 2px dashed red;
+  margin-bottom: 10px;
+}

@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Landing Page Project Brief</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Code+Pro:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      font-size: 11pt;
+      color: #1a1a2e;
+      background: #e8e8e8;
+      padding: 32px 16px;
+      line-height: 1.6;
+    }
+
+    @page { size: letter; margin: 20mm; }
+
+    .page {
+      background: #fff;
+      max-width: 850px;
+      margin: 0 auto 32px;
+      padding: 52px 64px 60px;
+      box-shadow: 0 2px 18px rgba(0,0,0,.13);
+    }
+
+    /* Header */
+    .doc-header { border-bottom: 3px solid #7c3aed; padding-bottom: 16px; margin-bottom: 24px; }
+    .doc-header .school { font-size: 9pt; color: #6b7280; text-transform: uppercase; letter-spacing: .08em; font-weight: 600; }
+    .doc-header h1 { font-size: 20pt; font-weight: 700; color: #1a1a2e; margin: 6px 0 4px; line-height: 1.2; }
+    .doc-header .subtitle { font-size: 10pt; color: #4b5563; font-weight: 500; }
+
+    .student-info { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 32px; margin-top: 20px; }
+    .info-field { display: flex; align-items: center; gap: 8px; font-size: 10pt; }
+    .info-field label { font-weight: 600; white-space: nowrap; color: #374151; }
+    .info-field .line { flex: 1; border-bottom: 1.5px solid #9ca3af; height: 18px; }
+    .score-box {
+      grid-column: 2; justify-self: end;
+      border: 2px solid #7c3aed; border-radius: 6px; padding: 6px 18px;
+      font-size: 10pt; font-weight: 700; color: #7c3aed;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .score-line { width: 50px; border-bottom: 1.5px solid #7c3aed; height: 18px; }
+
+    /* Overview box */
+    .overview {
+      background: #faf5ff; border-left: 4px solid #7c3aed;
+      border-radius: 0 6px 6px 0; padding: 12px 16px;
+      font-size: 9.5pt; color: #5b21b6; margin-bottom: 24px;
+    }
+    .overview strong { font-weight: 700; }
+    .overview p + p { margin-top: 6px; }
+
+    /* Wireframe */
+    .wireframe-wrap { margin-bottom: 24px; }
+    .wireframe-title { font-size: 9pt; font-weight: 700; color: #6b7280; text-transform: uppercase; letter-spacing: .06em; margin-bottom: 8px; }
+    .wireframe {
+      border: 1.5px solid #d1d5db; border-radius: 6px; padding: 12px;
+      font-family: 'Source Code Pro', monospace; font-size: 8pt;
+      line-height: 1.6; color: #374151; background: #f9fafb;
+    }
+
+    /* Section headings */
+    .section-heading {
+      background: #7c3aed; color: #fff; padding: 7px 14px; border-radius: 6px;
+      font-size: 10pt; font-weight: 700; margin: 28px 0 14px;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .section-heading .pts { font-size: 9pt; font-weight: 500; opacity: .9; }
+
+    /* Requirements list */
+    .req-list { list-style: none; }
+    .req-list li {
+      display: flex; align-items: flex-start; gap: 10px;
+      padding: 9px 0; border-bottom: 1px dashed #e5e7eb;
+      font-size: 10pt;
+    }
+    .req-list li:last-child { border-bottom: none; }
+
+    .req-num {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 22px; height: 22px; background: #7c3aed; color: #fff;
+      border-radius: 50%; font-size: 9pt; font-weight: 700; flex-shrink: 0; margin-top: 1px;
+    }
+
+    .checkbox {
+      width: 16px; height: 16px; border: 1.5px solid #9ca3af;
+      border-radius: 3px; flex-shrink: 0; margin-top: 3px;
+    }
+
+    code {
+      font-family: 'Source Code Pro', monospace; font-size: 9pt;
+      background: #f3f4f6; border: 1px solid #e5e7eb; border-radius: 3px;
+      padding: 1px 5px; color: #7c3aed;
+    }
+
+    .tag {
+      display: inline-block; font-size: 7.5pt; font-weight: 700;
+      padding: 1px 6px; border-radius: 10px; margin-left: 6px;
+      text-transform: uppercase; letter-spacing: .04em; vertical-align: middle;
+    }
+    .tag-html { background: #fef3c7; color: #92400e; }
+    .tag-css  { background: #dbeafe; color: #1e40af; }
+    .tag-both { background: #ede9fe; color: #5b21b6; }
+
+    /* Rubric table */
+    .rubric { width: 100%; border-collapse: collapse; font-size: 9.5pt; margin-top: 8px; }
+    .rubric th { background: #7c3aed; color: #fff; padding: 7px 10px; text-align: left; font-weight: 600; }
+    .rubric td { padding: 7px 10px; border-bottom: 1px solid #e5e7eb; }
+    .rubric tr:nth-child(even) td { background: #faf5ff; }
+
+    /* Tips */
+    .tips {
+      background: #ecfdf5; border-left: 4px solid #10b981;
+      border-radius: 0 6px 6px 0; padding: 10px 14px;
+      font-size: 9.5pt; color: #065f46; margin-top: 20px;
+    }
+    .tips strong { font-weight: 700; }
+    .tips ul { margin: 6px 0 0 16px; }
+    .tips li { margin-bottom: 3px; }
+
+    /* Footer */
+    .doc-footer {
+      margin-top: 36px; padding-top: 12px; border-top: 1.5px solid #e5e7eb;
+      display: flex; justify-content: space-between;
+      font-size: 8.5pt; color: #9ca3af;
+    }
+
+    @media print {
+      body { background: none; padding: 0; }
+      .page { box-shadow: none; padding: 0; max-width: 100%; }
+      .section-heading, .req-num { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .rubric th { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .overview, .tips { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <header class="doc-header">
+    <div class="school">MBTC · S9 — Front-End Development Track</div>
+    <h1>Landing Page Project</h1>
+    <div class="subtitle">Build a fully responsive landing page for a fictional tech app using HTML &amp; CSS</div>
+    <div class="student-info">
+      <div class="info-field"><label>Name:</label><div class="line"></div></div>
+      <div class="info-field"><label>Date:</label><div class="line"></div></div>
+      <div class="info-field"><label>Section:</label><div class="line"></div></div>
+      <div class="score-box">Score: <div class="score-line"></div> / 50</div>
+    </div>
+  </header>
+
+  <!-- OVERVIEW -->
+  <div class="overview">
+    <p><strong>Project:</strong> You will build a landing page for <strong>Syncly</strong> — a fictional project management app.
+    The page must include the sections listed below and meet all 20 technical requirements.
+    Open the starter files <code>landing-starter.html</code> and <code>landing-starter.css</code>, read the
+    <code>TODO</code> comments, and implement each requirement.</p>
+    <p><strong>Files to submit:</strong> <code>landing-starter.html</code> and <code>landing-starter.css</code> (rename to your name before submitting).
+    &nbsp;Each requirement is worth <strong>2.5 pts</strong> (Total: 50 pts).</p>
+  </div>
+
+  <!-- WIREFRAME -->
+  <div class="wireframe-wrap">
+    <div class="wireframe-title">Page Layout Wireframe</div>
+    <div class="wireframe">┌──────────────────────────────────────────────────────────────┐
+│  NAVBAR  [Logo]  [Features]  [Pricing]  [Contact]    [Sign Up] │  ← sticky, Flexbox
+├──────────────────────────────────────────────────────────────┤
+│                                                                │
+│           HERO   Heading (animated) + subheading              │  ← Flexbox centered
+│                  [Get Started]  [Learn More]                   │     + @keyframes
+│                                                                │
+├─────────────────┬───────────────────┬──────────────────────────┤
+│  Feature Card 1 │  Feature Card 2   │  Feature Card 3          │  ← CSS Grid 3-col
+│  icon + title   │  icon + title     │  icon + title            │     + hover lift
+│  description    │  description      │  description             │
+├──────────────────────────────────────────────────────────────┤
+│  HOW IT WORKS   (numbered list with ::before custom counters)  │  ← pseudo-elements
+├──────────────────────────┬───────────────────────────────────┤
+│  Testimonial 1           │  Testimonial 2                     │  ← CSS Grid 2-col
+│  " quote text "          │  " quote text "                    │     + ::before quote
+├──────────────────────────────────────────────────────────────┤
+│  CONTACT FORM   Name | Email | Message | [Submit]             │  ← form + :focus
+├──────────────────────────────────────────────────────────────┤
+│  FOOTER   [Links col]   [Social col]   [Legal col]            │  ← Flexbox 3-col
+└──────────────────────────────────────────────────────────────┘</div>
+  </div>
+
+  <!-- ── NAVBAR ─────────────────────────────────────────── -->
+  <div class="section-heading">
+    Section 1 &nbsp;·&nbsp; Navigation Bar
+    <span class="pts">Requirements 1–3</span>
+  </div>
+  <ul class="req-list">
+    <li>
+      <div class="checkbox"></div>
+      <span class="req-num">1</span>
+      <span>Use a semantic <code>&lt;nav&gt;</code> element. Inside it, place the logo text on the left and
+      three navigation links on the right. Use <strong>Flexbox</strong> with <code>justify-content: space-between</code>
+      to push them apart. <span class="tag tag-both">HTML + CSS</span></span>
+    </li>
+    <li>
+      <div class="checkbox"></div>
+      <span class="req-num">2</span>
+      <span>Make the navbar stay fixed at the top while the user scrolls using
+      <code>position: sticky</code> and <code>top: 0</code>. Add a subtle bottom border or box-shadow.
+      <span class="tag tag-css">CSS</span></span>
+    </li>
+    <li>
+      <div class="checkbox"></div>
+      <span class="req-num">3</span>
+      <span>Add a smooth color-change transition to all nav links on <code>:hover</code>
+      (transition duration: <code>0.3s ease</code>). <span class="tag tag-css">CSS</span></span>
+    </li>
+  </ul>
+
+  <!-- ── HERO ──────────────────────────────────────────── -->
+  <div class="section-heading">
+    Section 2 &nbsp;·&nbsp; Hero Section
+    <span class="pts">Requirements 4–7</span>
+  </div>
+  <ul class="req-list">
+    <li>
+      <div class="checkbox"></div>
+      <span class="req-num">4</span>
+      <span>Use <strong>Flexbox</strong> to center the hero content both <em>horizontally</em>
+      and <em>vertically</em>. The hero section should have a minimum height of <code>80vh</code>.
+      <span class="tag tag-css">CSS</span></span>
+    </li>
+    <li>
+      <div class="checkbox"></div>
+      <span class="req-num">5</span>
+      <span>Write a <code>@keyframes</code> animation called <code>fadeSlideIn</code> that starts with
+      <code>opacity: 0</code> and <code>transform: translateY(30px)</code>, ending at
+      <code>opacity: 1</code> and <code>transform: translateY(0)</code>.
+      Apply it to the hero heading. <span class="tag tag-css">CSS</span></span>
+    </li>
+    <li>
+      <div class="checkbox"></div>
+      <span class="req-num">6</span>
+      <span>Declare at least <strong>3 CSS Custom Properties</strong> on <code>:root</code>
+      — a primary color, an accent color, and a text color — and use them throughout the page.
+      <span class="tag tag-css">CSS</span></span>
+    </li>
+    <li>
+      <div class="checkbox"></div>
+      <span class="req-num">7</span>
+      <span>Style the primary CTA button with <code>border-radius: 8px</code>,
+      a <code>box-shadow</code>, and a <code>:hover</code> transition that shifts the background color.
+      <span class="tag tag-css">CSS</span></span>
+    </li>
+  </ul>
+
+  <!-- ── FEATURES ──────────────────────────────────────── -->
+  <div class="section-heading">
+    Section 3 &nbsp;·&nbsp; Features Grid
+    <span class="pts">Requirements 8–10</span>
+  </div>
+  <ul class="req-list">
+    <li>
+      <div class="checkbox"></div>
+      <span class="req-num">8</span>
+      <span>Display the three feature cards in a <strong>3-column CSS Grid</strong>
+      using <code>repeat(3, 1fr)</code> with a <code>24px</code> gap.
+      Each card must have a heading, icon (emoji is fine), and short description.
+      <span class="tag tag-both">HTML + CSS</span></span>
+    </li>
+    <li>
+      <div class="checkbox"></div>
+      <span class="req-num">9</span>
+      <span>Give each feature card a <code>border-radius</code>, a subtle <code>box-shadow</code>,
+      and a <code>border</code>. <span class="tag tag-css">CSS</span></span>
+    </li>
+    <li>
+      <div class="checkbox"></div>
+      <span class="req-num">10</span>
+      <span>Add a <code>:hover</code> effect to each card using
+      <code>transform: translateY(-6px)</code> and a transition so the card smoothly "lifts up".
+      <span class="tag tag-css">CSS</span></span>
+    </li>
+  </ul>
+
+  <!-- ── HOW IT WORKS ───────────────────────────────────── -->
+  <div class="section-heading">
+    Section 4 &nbsp;·&nbsp; How It Works
+    <span class="pts">Requirements 11–13</span>
+  </div>
+  <ul class="req-list">
+    <li>
+      <div class="checkbox"></div>
+      <span class="req-num">11</span>
+      <span>Use an <code>&lt;ol&gt;</code> with <code>list-style: none</code>.
+      Add custom step numbers using a CSS <code>counter</code> and the <code>::before</code>
+      pseudo-element (display as a circle with the count inside).
+      <span class="tag tag-both">HTML + CSS</span></span>
+    </li>
+    <li>
+      <div class="checkbox"></div>
+      <span class="req-num">12</span>
+      <span>Use the <code>:nth-child(even)</code> selector to give alternating list items
+      a light background color that differs from the odd items.
+      <span class="tag tag-css">CSS</span></span>
+    </li>
+    <li>
+      <div class="checkbox"></div>
+      <span class="req-num">13</span>
+      <span>Set the width of the "How It Works" content wrapper using <code>calc()</code>
+      — it should be <code>100%</code> minus <code>48px</code> for padding.
+      <span class="tag tag-css">CSS</span></span>
+    </li>
+  </ul>
+
+  <!-- ── TESTIMONIALS ───────────────────────────────────── -->
+  <div class="section-heading">
+    Section 5 &nbsp;·&nbsp; Testimonials
+    <span class="pts">Requirements 14–15</span>
+  </div>
+  <ul class="req-list">
+    <li>
+      <div class="checkbox"></div>
+      <span class="req-num">14</span>
+      <span>Place two testimonials side-by-side in a <strong>2-column CSS Grid</strong>.
+      Use a <code>&lt;blockquote&gt;</code> element for each testimonial with a
+      <code>&lt;cite&gt;</code> for the author name. <span class="tag tag-both">HTML + CSS</span></span>
+    </li>
+    <li>
+      <div class="checkbox"></div>
+      <span class="req-num">15</span>
+      <span>Add a large decorative opening quote mark (<code>"</code>) to each
+      <code>&lt;blockquote&gt;</code> using the <code>::before</code> pseudo-element
+      (content, font-size, color — no extra HTML element allowed).
+      <span class="tag tag-css">CSS</span></span>
+    </li>
+  </ul>
+
+  <!-- ── CONTACT FORM ───────────────────────────────────── -->
+  <div class="section-heading">
+    Section 6 &nbsp;·&nbsp; Contact Form
+    <span class="pts">Requirements 16–17</span>
+  </div>
+  <ul class="req-list">
+    <li>
+      <div class="checkbox"></div>
+      <span class="req-num">16</span>
+      <span>Build a contact form with four fields: <code>text</code> (name),
+      <code>email</code>, <code>textarea</code> (message), and a <code>submit</code> button.
+      Each field must have a <code>&lt;label&gt;</code> and proper <code>name</code> attribute.
+      <span class="tag tag-html">HTML</span></span>
+    </li>
+    <li>
+      <div class="checkbox"></div>
+      <span class="req-num">17</span>
+      <span>Style form inputs using the <code>:focus</code> pseudo-class:
+      change the <code>border-color</code> to your primary color and add a soft
+      <code>box-shadow</code> glow effect on focus. <span class="tag tag-css">CSS</span></span>
+    </li>
+  </ul>
+
+  <!-- ── FOOTER ─────────────────────────────────────────── -->
+  <div class="section-heading">
+    Section 7 &nbsp;·&nbsp; Footer &amp; Semantic HTML
+    <span class="pts">Requirements 18–19</span>
+  </div>
+  <ul class="req-list">
+    <li>
+      <div class="checkbox"></div>
+      <span class="req-num">18</span>
+      <span>Build the footer with <strong>3 columns</strong> (Links, Social, Legal) using
+      <strong>Flexbox</strong> with <code>justify-content: space-between</code>.
+      Wrap the whole footer in a <code>&lt;footer&gt;</code> element.
+      <span class="tag tag-both">HTML + CSS</span></span>
+    </li>
+    <li>
+      <div class="checkbox"></div>
+      <span class="req-num">19</span>
+      <span>Ensure the full page uses correct <strong>HTML5 semantic elements</strong>:
+      <code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>,
+      <code>&lt;section&gt;</code>, <code>&lt;article&gt;</code>, <code>&lt;footer&gt;</code>.
+      Add an <code>aria-label</code> attribute to at least two sections.
+      <span class="tag tag-html">HTML</span></span>
+    </li>
+  </ul>
+
+  <!-- ── RESPONSIVE ─────────────────────────────────────── -->
+  <div class="section-heading">
+    Section 8 &nbsp;·&nbsp; Responsive Design
+    <span class="pts">Requirement 20</span>
+  </div>
+  <ul class="req-list">
+    <li>
+      <div class="checkbox"></div>
+      <span class="req-num">20</span>
+      <span>Write a <strong>mobile-first media query</strong> at <code>max-width: 768px</code>
+      that: collapses the features grid to 1 column, collapses the testimonials to 1 column,
+      stacks the navbar links vertically, and increases the hero heading font size for readability.
+      <span class="tag tag-css">CSS</span></span>
+    </li>
+  </ul>
+
+  <!-- RUBRIC -->
+  <div class="section-heading" style="background:#374151;">
+    Grading Rubric
+    <span class="pts">Total: 50 pts</span>
+  </div>
+  <table class="rubric">
+    <tr>
+      <th>Score</th>
+      <th>Criteria</th>
+    </tr>
+    <tr><td><strong>2.5 / 2.5</strong></td><td>Requirement fully met — correct HTML structure, correct CSS, works as described</td></tr>
+    <tr><td><strong>1.5 / 2.5</strong></td><td>Partially correct — code is present but has a bug, missing property, or wrong value</td></tr>
+    <tr><td><strong>0.5 / 2.5</strong></td><td>Attempted but significantly incorrect — wrong approach or incomplete</td></tr>
+    <tr><td><strong>0 / 2.5</strong></td><td>Not attempted or requirement is entirely missing</td></tr>
+  </table>
+
+  <!-- TIPS -->
+  <div class="tips">
+    <strong>Tips before you start:</strong>
+    <ul>
+      <li>Open <code>landing-starter.html</code> and <code>landing-starter.css</code> side-by-side. All <code>TODO</code> comments tell you exactly where to write your code.</li>
+      <li>Use browser DevTools (<strong>F12</strong>) to inspect and debug your layout in real time.</li>
+      <li>Test your responsive design by dragging the browser window smaller, or use DevTools device toolbar (<strong>Ctrl+Shift+M</strong> / <strong>Cmd+Shift+M</strong>).</li>
+      <li>You can use any color palette you like — just define it through CSS Custom Properties.</li>
+    </ul>
+  </div>
+
+  <footer class="doc-footer">
+    <span>MBTC · S9 Front-End Track · Landing Page Project</span>
+    <span>20 Requirements &nbsp;|&nbsp; 50 points</span>
+  </footer>
+
+</div>
+</body>
+</html>

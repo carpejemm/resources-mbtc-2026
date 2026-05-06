@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Syncly — Project Management Made Simple</title>
+
+  <!--
+    ╔══════════════════════════════════════════════════════╗
+    ║   LANDING PAGE PROJECT STARTER — Syncly App         ║
+    ║   MBTC · S9 Front-End Development Track             ║
+    ║                                                      ║
+    ║   Instructions:                                      ║
+    ║   • Read every TODO comment carefully.               ║
+    ║   • Do NOT delete existing code — only add to it.   ║
+    ║   • HTML changes go here; CSS changes go in          ║
+    ║     landing-starter.css                              ║
+    ╚══════════════════════════════════════════════════════╝
+  -->
+
+  <!-- External CSS — your styles go in this file -->
+  <link rel="stylesheet" href="landing-starter.css" />
+</head>
+
+<body>
+
+  <!-- ════════════════════════════════════════════════════
+       REQUIREMENT 1, 2, 3 — Navigation Bar
+       • Use <nav> (semantic element)
+       • Flexbox: logo left, links right (space-between)
+       • position: sticky in CSS (Req 2)
+       • :hover transition on links (Req 3)
+  ═══════════════════════════════════════════════════════ -->
+  <!-- TODO Req 1: Wrap everything below in a <nav> element with class="navbar" DONE -->
+    <nav class="navbar">
+      <div class="nav-logo">
+        <!-- TODO Req 1: Replace this text with your app name / logo  DONE -->
+        MBTC SYNCLY
+      </div>
+
+    <ul class="nav-links">
+      <!-- TODO Req 1: Add three <li><a href="#"> links here: Features, Pricing, Contact DONE -->
+      <li><a href="#features">Features</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="#contact" class="btn btn-primary nav-cta">Sign Up Free</a></li>
+    </ul>
+
+    
+
+  <!-- TODO Req 1: Close the </nav> here DONE -->
+   </nav>
+
+
+  <!-- ════════════════════════════════════════════════════
+       REQUIREMENT 4, 5, 6, 7 — Hero Section
+       • <header> wrapping the hero area (Req 19 — semantic)
+       • Flexbox centering, min-height: 80vh (Req 4)
+       • @keyframes fadeSlideIn on the h1 (Req 5)
+       • CSS Custom Properties defined in :root (Req 6)
+       • CTA button: border-radius, box-shadow, :hover (Req 7)
+  ═══════════════════════════════════════════════════════ -->
+  <header class="hero" aria-label="Hero section">
+    <div class="hero-content">
+
+      <!-- TODO Req 5: This heading should have the fadeSlideIn animation applied in CSS -->
+      <h1 class="hero-heading">
+        Manage Projects.<br />Ship Faster.
+      </h1>
+
+      <p class="hero-sub">
+        Syncly brings your team, tasks, and deadlines into one
+        beautiful workspace — so nothing falls through the cracks.
+      </p>
+
+      <!-- TODO Req 7: Style .btn-primary with border-radius, box-shadow, and hover transition in CSS -->
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-primary">Get Started Free</a>
+        <a href="#features" class="btn btn-outline">See Features</a>
+      </div>
+
+    </div>
+  </header>
+
+
+  <!-- ════════════════════════════════════════════════════
+       Main content wrapper (Req 19 — semantic <main>)
+  ═══════════════════════════════════════════════════════ -->
+  <main>
+
+    <!-- ══ REQUIREMENT 8, 9, 10 — Features Grid ══════════
+         • 3-column CSS Grid: repeat(3, 1fr), gap 24px (Req 8)
+         • Each card: border-radius, box-shadow, border (Req 9)
+         • :hover lift effect: transform translateY (Req 10)
+    ════════════════════════════════════════════════════ -->
+    <section class="features" id="features" aria-label="Features section">
+      <h2 class="section-title">Everything your team needs</h2>
+      <p class="section-subtitle">Built for teams that move fast and build great things.</p>
+
+      <!-- TODO Req 8: Add class="features-grid" to this div -->
+      <div class="features-grid">
+
+        <!-- Feature Card 1 -->
+        <!-- TODO Req 8, 9, 10: Add class="feature-card" to each article -->
+        <article class="feature-card">
+          <div class="card-icon">📋</div>
+          <h3>Task Boards</h3>
+          <p>Visualize your workflow with drag-and-drop boards. Organize tasks by status, priority, or team member.</p>
+        </article>
+
+        <!-- Feature Card 2 -->
+        <article class="feature-card">
+          <div class="card-icon">⚡</div>
+          <h3>Real-Time Updates</h3>
+          <p>Instant notifications keep your team in sync. Never miss a deadline or status change again.</p>
+        </article>
+
+        <!-- Feature Card 3 -->
+        <article class="feature-card">
+          <div class="card-icon">📊</div>
+          <h3>Analytics Dashboard</h3>
+          <p>Track team velocity, project health, and delivery timelines with beautiful, actionable charts.</p>
+        </article>
+
+      </div>
+    </section>
+
+
+    <!-- ══ REQUIREMENT 11, 12, 13 — How It Works ═════════
+         • <ol> with list-style:none + ::before counter (Req 11)
+         • :nth-child(even) alternating background (Req 12)
+         • calc(100% - 48px) width on .steps-wrapper (Req 13)
+    ════════════════════════════════════════════════════ -->
+    <section class="how-it-works" id="how" aria-label="How it works">
+      <h2 class="section-title">Get up and running in minutes</h2>
+
+      <!-- TODO Req 13: Add class="steps-wrapper" to this div -->
+      <div>
+
+        <!-- TODO Req 11, 12: Change this <ul> to <ol> and add class="steps-list" -->
+        <ul>
+          <li>
+            <strong>Create your workspace</strong>
+            <p>Sign up and set up your team workspace in under 60 seconds. No credit card required.</p>
+          </li>
+          <li>
+            <strong>Invite your team</strong>
+            <p>Add teammates by email. Assign roles and permissions with a single click.</p>
+          </li>
+          <li>
+            <strong>Build your first board</strong>
+            <p>Choose a template or start from scratch. Drag tasks through your workflow.</p>
+          </li>
+          <li>
+            <strong>Ship and celebrate</strong>
+            <p>Hit your deadlines, review analytics, and watch your team's productivity soar.</p>
+          </li>
+        </ul>
+
+      </div>
+    </section>
+
+
+    <!-- ══ REQUIREMENT 14, 15 — Testimonials ═════════════
+         • 2-column CSS Grid (Req 14)
+         • <blockquote> with ::before decorative quote (Req 15)
+    ════════════════════════════════════════════════════ -->
+    <section class="testimonials" id="testimonials" aria-label="Testimonials">
+      <h2 class="section-title">Loved by teams worldwide</h2>
+
+      <!-- TODO Req 14: Add class="testimonials-grid" to this div -->
+      <div>
+
+        <!-- TODO Req 14, 15: Add class="testimonial-card" to each blockquote -->
+        <blockquote>
+          <p>"Syncly completely changed how our remote team collaborates. We ship 30% faster now."</p>
+          <cite>— Ana Reyes, Engineering Lead at Launchpad Co.</cite>
+        </blockquote>
+
+        <blockquote>
+          <p>"The cleanest project tool I've ever used. Our designers and developers are finally on the same page."</p>
+          <cite>— Marco Lim, Product Manager at PixelForge</cite>
+        </blockquote>
+
+      </div>
+    </section>
+
+
+    <!-- ══ REQUIREMENT 16, 17 — Contact Form ═════════════
+         • 4 fields: name (text), email, textarea, submit (Req 16)
+         • Each field has a <label> and name attribute (Req 16)
+         • :focus styles in CSS (Req 17)
+    ════════════════════════════════════════════════════ -->
+    <section class="contact" id="contact" aria-label="Contact form">
+      <h2 class="section-title">Get in touch</h2>
+      <p class="section-subtitle">Have questions? We'd love to hear from you.</p>
+
+      <!-- TODO Req 16: Build the form here -->
+      <!-- Required fields:
+           1. Text input  — label: "Your Name"     name="name"
+           2. Email input — label: "Email Address" name="email"
+           3. Textarea    — label: "Message"        name="message"
+           4. Submit button — text: "Send Message"
+           Wrap each label+input pair in a <div class="form-group">
+      -->
+      <form class="contact-form" action="#" method="post">
+
+        <!-- TODO: Add form fields here -->
+
+      </form>
+    </section>
+
+  </main><!-- /main -->
+
+
+  <!-- ════════════════════════════════════════════════════
+       REQUIREMENT 18, 19 — Footer
+       • Flexbox 3-column layout (Req 18)
+       • Semantic <footer> element (Req 19)
+  ═══════════════════════════════════════════════════════ -->
+  <!-- TODO Req 18: Add class="site-footer" to the footer element -->
+  <footer>
+
+    <!-- Column 1: Links -->
+    <div class="footer-col">
+      <h4>Syncly</h4>
+      <ul>
+        <li><a href="#">Features</a></li>
+        <li><a href="#">Pricing</a></li>
+        <li><a href="#">Blog</a></li>
+      </ul>
+    </div>
+
+    <!-- Column 2: Social -->
+    <div class="footer-col">
+      <h4>Follow Us</h4>
+      <ul>
+        <li><a href="#">Twitter / X</a></li>
+        <li><a href="#">LinkedIn</a></li>
+        <li><a href="#">GitHub</a></li>
+      </ul>
+    </div>
+
+    <!-- Column 3: Legal -->
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <ul>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms of Service</a></li>
+        <li><a href="#">Cookie Policy</a></li>
+      </ul>
+    </div>
+
+  </footer>
+
+</body>
+</html>

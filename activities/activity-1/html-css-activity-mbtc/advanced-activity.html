@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Advanced HTML & CSS Activity</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Code+Pro:wght@400;600&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    /* ── Reset & Base ──────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      font-size: 11pt;
+      color: #1a1a2e;
+      background: #e8e8e8;
+      padding: 32px 16px;
+      line-height: 1.6;
+    }
+
+    /* ── Page (letter size) ────────────────────────────── */
+    @page {
+      size: letter;
+      margin: 22mm 20mm 22mm 20mm;
+    }
+
+    .page {
+      background: #fff;
+      max-width: 850px;
+      margin: 0 auto;
+      padding: 52px 64px 64px;
+      box-shadow: 0 2px 18px rgba(0,0,0,.13);
+      counter-reset: item-counter;
+    }
+
+    /* ── Document Header ───────────────────────────────── */
+    .doc-header {
+      border-bottom: 3px solid #1a56db;
+      padding-bottom: 16px;
+      margin-bottom: 28px;
+    }
+
+    .doc-header .school {
+      font-size: 9pt;
+      color: #6b7280;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      font-weight: 600;
+    }
+
+    .doc-header h1 {
+      font-size: 20pt;
+      font-weight: 700;
+      color: #1a1a2e;
+      line-height: 1.2;
+      margin: 6px 0 4px;
+    }
+
+    .doc-header .subtitle {
+      font-size: 10pt;
+      color: #4b5563;
+      font-weight: 500;
+    }
+
+    .student-info {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px 32px;
+      margin-top: 20px;
+    }
+
+    .info-field {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 10pt;
+    }
+
+    .info-field label {
+      font-weight: 600;
+      white-space: nowrap;
+      color: #374151;
+    }
+
+    .info-field .line {
+      flex: 1;
+      border-bottom: 1.5px solid #9ca3af;
+      min-width: 80px;
+      height: 18px;
+    }
+
+    .score-box {
+      grid-column: 2;
+      justify-self: end;
+      border: 2px solid #1a56db;
+      border-radius: 6px;
+      padding: 6px 18px;
+      font-size: 10pt;
+      font-weight: 700;
+      color: #1a56db;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .score-box .score-line {
+      width: 50px;
+      border-bottom: 1.5px solid #1a56db;
+      height: 18px;
+    }
+
+    /* ── Instructions ──────────────────────────────────── */
+    .instructions {
+      background: #eff6ff;
+      border-left: 4px solid #1a56db;
+      border-radius: 0 6px 6px 0;
+      padding: 10px 14px;
+      font-size: 9.5pt;
+      color: #1e40af;
+      margin-bottom: 28px;
+    }
+
+    .instructions strong { font-weight: 700; }
+
+    /* ── Part headings ─────────────────────────────────── */
+    .part-heading {
+      background: #1a56db;
+      color: #fff;
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-size: 10.5pt;
+      font-weight: 700;
+      margin: 32px 0 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .part-heading .points {
+      font-size: 9pt;
+      font-weight: 500;
+      opacity: .9;
+    }
+
+    /* ── Items ─────────────────────────────────────────── */
+    .item {
+      margin-bottom: 22px;
+      page-break-inside: avoid;
+    }
+
+    .item-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 22px;
+      height: 22px;
+      background: #1a56db;
+      color: #fff;
+      border-radius: 50%;
+      font-size: 9pt;
+      font-weight: 700;
+      margin-right: 8px;
+      flex-shrink: 0;
+      vertical-align: middle;
+    }
+
+    .item-text {
+      font-size: 10.5pt;
+      font-weight: 500;
+      color: #111827;
+    }
+
+    .item-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 0;
+      margin-bottom: 10px;
+    }
+
+    /* ── Multiple Choice ───────────────────────────────── */
+    .choices {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px 24px;
+      margin-top: 10px;
+      padding-left: 30px;
+    }
+
+    .choice {
+      display: flex;
+      align-items: flex-start;
+      gap: 7px;
+      font-size: 10pt;
+    }
+
+    .choice-letter {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 18px;
+      height: 18px;
+      border: 1.5px solid #6b7280;
+      border-radius: 50%;
+      font-size: 8.5pt;
+      font-weight: 600;
+      color: #374151;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    /* ── Code blocks ───────────────────────────────────── */
+    code, .code-snippet {
+      font-family: 'Source Code Pro', monospace;
+      font-size: 9.5pt;
+      background: #f3f4f6;
+      border: 1px solid #e5e7eb;
+      border-radius: 4px;
+    }
+
+    code { padding: 1px 5px; color: #1a56db; }
+
+    .code-snippet {
+      display: block;
+      padding: 12px 14px;
+      margin: 8px 0 8px 30px;
+      white-space: pre;
+      line-height: 1.55;
+      color: #1f2937;
+      overflow-x: auto;
+    }
+
+    .blank {
+      display: inline-block;
+      border-bottom: 1.5px solid #374151;
+      min-width: 90px;
+      height: 16px;
+      vertical-align: bottom;
+      margin: 0 4px;
+    }
+
+    /* ── Answer boxes ──────────────────────────────────── */
+    .answer-box {
+      margin: 10px 0 0 30px;
+      border: 1.5px solid #d1d5db;
+      border-radius: 6px;
+      background: #fefce8;
+      padding: 10px 12px;
+      min-height: 80px;
+      font-family: 'Source Code Pro', monospace;
+      font-size: 9.5pt;
+      color: #6b7280;
+      font-style: italic;
+    }
+
+    .answer-box.tall { min-height: 120px; }
+    .answer-box.short { min-height: 50px; }
+
+    .answer-label {
+      font-size: 8pt;
+      font-weight: 600;
+      color: #9ca3af;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      margin-bottom: 4px;
+      font-style: normal;
+      font-family: 'Inter', sans-serif;
+    }
+
+    /* ── Divider ───────────────────────────────────────── */
+    .item-divider {
+      border: none;
+      border-top: 1px dashed #e5e7eb;
+      margin: 20px 0;
+    }
+
+    /* ── Bug callout ───────────────────────────────────── */
+    .bug-box {
+      margin: 8px 0 8px 30px;
+      border: 1.5px solid #fca5a5;
+      border-radius: 6px;
+      background: #fff5f5;
+      padding: 10px 14px;
+    }
+
+    .bug-label {
+      font-size: 8pt;
+      font-weight: 700;
+      color: #ef4444;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      margin-bottom: 6px;
+    }
+
+    /* ── Footer ────────────────────────────────────────── */
+    .doc-footer {
+      margin-top: 40px;
+      padding-top: 14px;
+      border-top: 1.5px solid #e5e7eb;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 8.5pt;
+      color: #9ca3af;
+    }
+
+    /* ── Print overrides ───────────────────────────────── */
+    @media print {
+      body { background: none; padding: 0; }
+      .page { box-shadow: none; padding: 0; max-width: 100%; }
+      .part-heading { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .item-number { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .answer-box { background: #fefce8 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .bug-box { background: #fff5f5 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .instructions { background: #eff6ff !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      a { text-decoration: none; color: inherit; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ══ DOCUMENT HEADER ══════════════════════════════════ -->
+  <header class="doc-header">
+    <div class="school">MBTC · S9 — Front-End Development Track</div>
+    <h1>Advanced HTML &amp; CSS Activity</h1>
+    <div class="subtitle">Topics: Flexbox · Grid · Custom Properties · Animations · Responsive Design · Advanced Selectors</div>
+
+    <div class="student-info">
+      <div class="info-field">
+        <label>Name:</label>
+        <div class="line"></div>
+      </div>
+      <div class="info-field">
+        <label>Date:</label>
+        <div class="line"></div>
+      </div>
+      <div class="info-field">
+        <label>Section:</label>
+        <div class="line"></div>
+      </div>
+      <div class="score-box">Score: <div class="score-line"></div> / 50</div>
+    </div>
+  </header>
+
+  <!-- ══ INSTRUCTIONS ══════════════════════════════════════ -->
+  <div class="instructions">
+    <strong>Instructions:</strong> This activity has three parts.
+    <strong>Part 1</strong> — circle the letter of the best answer.
+    <strong>Part 2</strong> — write the missing code in the blank(s).
+    <strong>Part 3</strong> — write your code answer in the yellow box.
+    Each item is worth <strong>2.5 points</strong> (Total: 50 pts). Partial credit may be given for coding items.
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════
+       PART 1 — MULTIPLE CHOICE (Items 1–7)
+  ═══════════════════════════════════════════════════════ -->
+  <div class="part-heading">
+    Part 1 &nbsp;·&nbsp; Multiple Choice
+    <span class="points">Items 1–7 &nbsp;|&nbsp; 2.5 pts each</span>
+  </div>
+
+  <!-- Item 1 -->
+  <div class="item">
+    <div class="item-header">
+      <span class="item-number">1</span>
+      <span class="item-text">
+        In a Flexbox container with <code>flex-direction: row</code> (the default),
+        which property controls alignment along the <em>vertical</em> (cross) axis?
+      </span>
+    </div>
+    <div class="choices">
+      <div class="choice"><span class="choice-letter">A</span> <span><code>justify-content</code></span></div>
+      <div class="choice"><span class="choice-letter">B</span> <span><code>align-items</code></span></div>
+      <div class="choice"><span class="choice-letter">C</span> <span><code>flex-wrap</code></span></div>
+      <div class="choice"><span class="choice-letter">D</span> <span><code>flex-grow</code></span></div>
+    </div>
+  </div>
+  <hr class="item-divider" />
+
+  <!-- Item 2 -->
+  <div class="item">
+    <div class="item-header">
+      <span class="item-number">2</span>
+      <span class="item-text">
+        Which CSS Grid declaration creates <strong>three equal-width columns</strong>
+        using fractional units?
+      </span>
+    </div>
+    <div class="choices">
+      <div class="choice"><span class="choice-letter">A</span> <span><code>grid-template-columns: 33% 33% 33%;</code></span></div>
+      <div class="choice"><span class="choice-letter">B</span> <span><code>grid-template-columns: auto auto auto;</code></span></div>
+      <div class="choice"><span class="choice-letter">C</span> <span><code>grid-template-columns: repeat(3, 1fr);</code></span></div>
+      <div class="choice"><span class="choice-letter">D</span> <span><code>grid-columns: 3;</code></span></div>
+    </div>
+  </div>
+  <hr class="item-divider" />
+
+  <!-- Item 3 -->
+  <div class="item">
+    <div class="item-header">
+      <span class="item-number">3</span>
+      <span class="item-text">
+        Given the following selectors targeting the same element, which one has the
+        <strong>highest specificity</strong> and will override the others?
+      </span>
+    </div>
+    <div class="choices">
+      <div class="choice"><span class="choice-letter">A</span> <span><code>p { color: red; }</code></span></div>
+      <div class="choice"><span class="choice-letter">B</span> <span><code>.text { color: blue; }</code></span></div>
+      <div class="choice"><span class="choice-letter">C</span> <span><code>#headline { color: green; }</code></span></div>
+      <div class="choice"><span class="choice-letter">D</span> <span><code>p.text { color: orange; }</code></span></div>
+    </div>
+  </div>
+  <hr class="item-divider" />
+
+  <!-- Item 4 -->
+  <div class="item">
+    <div class="item-header">
+      <span class="item-number">4</span>
+      <span class="item-text">
+        What is the key difference between <code>position: fixed</code>
+        and <code>position: sticky</code>?
+      </span>
+    </div>
+    <div class="choices">
+      <div class="choice"><span class="choice-letter">A</span> <span><code>fixed</code> stays in place while scrolling; <code>sticky</code> scrolls until it hits a threshold, then sticks</span></div>
+      <div class="choice"><span class="choice-letter">B</span> <span><code>sticky</code> is removed from document flow; <code>fixed</code> is not</span></div>
+      <div class="choice"><span class="choice-letter">C</span> <span>Both behave identically — <code>sticky</code> is just an alias</span></div>
+      <div class="choice"><span class="choice-letter">D</span> <span><code>fixed</code> is relative to its parent; <code>sticky</code> is relative to the viewport</span></div>
+    </div>
+  </div>
+  <hr class="item-divider" />
+
+  <!-- Item 5 -->
+  <div class="item">
+    <div class="item-header">
+      <span class="item-number">5</span>
+      <span class="item-text">
+        Which of the following correctly <strong>declares and uses</strong> a
+        CSS Custom Property (variable)?
+      </span>
+    </div>
+    <div class="choices">
+      <div class="choice"><span class="choice-letter">A</span>
+        <span>
+<pre style="font-family:'Source Code Pro',monospace;font-size:8.5pt;background:#f3f4f6;padding:4px 8px;border-radius:4px;">:root { $brand: #1a56db; }
+h1 { color: $brand; }</pre>
+        </span>
+      </div>
+      <div class="choice"><span class="choice-letter">B</span>
+        <span>
+<pre style="font-family:'Source Code Pro',monospace;font-size:8.5pt;background:#f3f4f6;padding:4px 8px;border-radius:4px;">:root { --brand: #1a56db; }
+h1 { color: var(--brand); }</pre>
+        </span>
+      </div>
+      <div class="choice"><span class="choice-letter">C</span>
+        <span>
+<pre style="font-family:'Source Code Pro',monospace;font-size:8.5pt;background:#f3f4f6;padding:4px 8px;border-radius:4px;">:root { brand: #1a56db; }
+h1 { color: var(brand); }</pre>
+        </span>
+      </div>
+      <div class="choice"><span class="choice-letter">D</span>
+        <span>
+<pre style="font-family:'Source Code Pro',monospace;font-size:8.5pt;background:#f3f4f6;padding:4px 8px;border-radius:4px;">:root { @var brand: #1a56db; }
+h1 { color: @brand; }</pre>
+        </span>
+      </div>
+    </div>
+  </div>
+  <hr class="item-divider" />
+
+  <!-- Item 6 -->
+  <div class="item">
+    <div class="item-header">
+      <span class="item-number">6</span>
+      <span class="item-text">
+        Which media query applies styles <strong>only when the viewport is
+        768 px wide or wider</strong> (mobile-first approach)?
+      </span>
+    </div>
+    <div class="choices">
+      <div class="choice"><span class="choice-letter">A</span> <span><code>@media (max-width: 768px) { ... }</code></span></div>
+      <div class="choice"><span class="choice-letter">B</span> <span><code>@media screen and (min-width: 768px) { ... }</code></span></div>
+      <div class="choice"><span class="choice-letter">C</span> <span><code>@media (width: 768px) { ... }</code></span></div>
+      <div class="choice"><span class="choice-letter">D</span> <span><code>@responsive (min: 768px) { ... }</code></span></div>
+    </div>
+  </div>
+  <hr class="item-divider" />
+
+  <!-- Item 7 -->
+  <div class="item">
+    <div class="item-header">
+      <span class="item-number">7</span>
+      <span class="item-text">
+        Which is the <strong>correct CSS3 syntax</strong> for a pseudo-element
+        that inserts content <em>before</em> an element?
+      </span>
+    </div>
+    <div class="choices">
+      <div class="choice"><span class="choice-letter">A</span> <span><code>p:before { content: "→"; }</code></span></div>
+      <div class="choice"><span class="choice-letter">B</span> <span><code>p::before { content: "→"; }</code></span></div>
+      <div class="choice"><span class="choice-letter">C</span> <span><code>p.before { content: "→"; }</code></span></div>
+      <div class="choice"><span class="choice-letter">D</span> <span><code>p[before] { content: "→"; }</code></span></div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════
+       PART 2 — FILL IN THE BLANK (Items 8–13)
+  ═══════════════════════════════════════════════════════ -->
+  <div class="part-heading">
+    Part 2 &nbsp;·&nbsp; Fill in the Blank
+    <span class="points">Items 8–13 &nbsp;|&nbsp; 2.5 pts each</span>
+  </div>
+
+  <!-- Item 8 -->
+  <div class="item">
+    <div class="item-header">
+      <span class="item-number">8</span>
+      <span class="item-text">
+        Complete the CSS rule below so that the flex container
+        <strong>centers its children both horizontally and vertically</strong>.
+        Write the two missing values.
+      </span>
+    </div>
+    <pre class="code-snippet">.center-box {
+  display: flex;
+  justify-content: <span class="blank"></span>;
+  align-items:     <span class="blank"></span>;
+}</pre>
+  </div>
+  <hr class="item-divider" />
+
+  <!-- Item 9 -->
+  <div class="item">
+    <div class="item-header">
+      <span class="item-number">9</span>
+      <span class="item-text">
+        Fill in the blank so that the grid creates
+        <strong>three equal columns</strong> and a <strong>16px gap</strong>
+        between them.
+      </span>
+    </div>
+    <pre class="code-snippet">.grid-layout {
+  display: grid;
+  grid-template-columns: <span class="blank" style="min-width:160px"></span>;
+  gap: <span class="blank"></span>;
+}</pre>
+  </div>
+  <hr class="item-divider" />
+
+  <!-- Item 10 -->
+  <div class="item">
+    <div class="item-header">
+      <span class="item-number">10</span>
+      <span class="item-text">
+        Fill in the blank to add a smooth transition that
+        animates the <code>background-color</code> property over
+        <strong>0.3 seconds</strong> with an <strong>ease-in-out</strong> timing function.
+      </span>
+    </div>
+    <pre class="code-snippet">.btn {
+  background-color: #1a56db;
+  transition: <span class="blank" style="min-width:260px"></span>;
+}
+
+.btn:hover {
+  background-color: #1e40af;
+}</pre>
+  </div>
+  <hr class="item-divider" />
+
+  <!-- Item 11 -->
+  <div class="item">
+    <div class="item-header">
+      <span class="item-number">11</span>
+      <span class="item-text">
+        Complete the <code>@keyframes</code> block below so the element
+        <strong>fades in</strong> — starting fully transparent and ending fully opaque.
+      </span>
+    </div>
+    <pre class="code-snippet">@keyframes fadeIn {
+  from {
+    opacity: <span class="blank"></span>;
+  }
+  to {
+    opacity: <span class="blank"></span>;
+  }
+}
+
+.box {
+  animation: fadeIn 1s ease forwards;
+}</pre>
+  </div>
+  <hr class="item-divider" />
+
+  <!-- Item 12 -->
+  <div class="item">
+    <div class="item-header">
+      <span class="item-number">12</span>
+      <span class="item-text">
+        Fill in the selector so that it targets
+        <strong>every even-numbered <code>&lt;li&gt;</code> element</strong>
+        inside the list.
+      </span>
+    </div>
+    <pre class="code-snippet">ul li<span class="blank" style="min-width:120px"></span> {
+  background-color: #eff6ff;
+}</pre>
+  </div>
+  <hr class="item-divider" />
+
+  <!-- Item 13 -->
+  <div class="item">
+    <div class="item-header">
+      <span class="item-number">13</span>
+      <span class="item-text">
+        Use the <code>calc()</code> function to set the width so that
+        the element takes up <strong>100% of its container minus 40px</strong>
+        (for a combined left/right margin).
+      </span>
+    </div>
+    <pre class="code-snippet">.content {
+  width: <span class="blank" style="min-width:200px"></span>;
+  margin: 0 20px;
+}</pre>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════
+       PART 3 — SHORT CODING TASKS (Items 14–20)
+  ═══════════════════════════════════════════════════════ -->
+  <div class="part-heading">
+    Part 3 &nbsp;·&nbsp; Short Coding Tasks
+    <span class="points">Items 14–20 &nbsp;|&nbsp; 2.5 pts each</span>
+  </div>
+
+  <!-- Item 14 -->
+  <div class="item">
+    <div class="item-header">
+      <span class="item-number">14</span>
+      <span class="item-text">
+        Write a CSS rule for a class <code>.two-col</code> that creates a
+        <strong>2-column CSS Grid layout</strong> where the first column is
+        <code>300px</code> wide and the second column fills the remaining space.
+        Add a <code>24px</code> gap between columns.
+      </span>
+    </div>
+    <div class="answer-box short">
+      <div class="answer-label">Write your CSS here</div>
+    </div>
+  </div>
+  <hr class="item-divider" />
+
+  <!-- Item 15 -->
+  <div class="item">
+    <div class="item-header">
+      <span class="item-number">15</span>
+      <span class="item-text">
+        Write CSS for a class <code>.card</code> that has:
+        a <strong>rounded corners</strong> (8px radius),
+        a <strong>subtle box shadow</strong>,
+        and a <strong>smooth background-color transition</strong> on hover
+        (from white to light blue <code>#eff6ff</code>).
+      </span>
+    </div>
+    <div class="answer-box tall">
+      <div class="answer-label">Write your CSS here</div>
+    </div>
+  </div>
+  <hr class="item-divider" />
+
+  <!-- Item 16 -->
+  <div class="item">
+    <div class="item-header">
+      <span class="item-number">16</span>
+      <span class="item-text">
+        Write the HTML and CSS for a responsive navbar using <strong>Flexbox</strong>.
+        The logo should be on the left, and three nav links on the right.
+        The links should wrap to the next line on small screens
+        (<code>flex-wrap: wrap</code>).
+      </span>
+    </div>
+    <div class="answer-box tall">
+      <div class="answer-label">Write your HTML + CSS here</div>
+    </div>
+  </div>
+  <hr class="item-divider" />
+
+  <!-- Item 17 -->
+  <div class="item">
+    <div class="item-header">
+      <span class="item-number">17</span>
+      <span class="item-text">
+        The CSS animation below has <strong>two bugs</strong>. Find them and write
+        the corrected version in the answer box.
+      </span>
+    </div>
+    <div class="bug-box">
+      <div class="bug-label">Buggy Code — Find &amp; Fix</div>
+      <pre style="font-family:'Source Code Pro',monospace;font-size:9pt;line-height:1.55;">@keyframes slideIn {
+  from { left: -100%; }
+}
+
+.banner {
+  position: relative;
+  animate: slideIn 0.5s ease-in;
+}</pre>
+    </div>
+    <div class="answer-box tall">
+      <div class="answer-label">Write the corrected CSS here</div>
+    </div>
+  </div>
+  <hr class="item-divider" />
+
+  <!-- Item 18 -->
+  <div class="item">
+    <div class="item-header">
+      <span class="item-number">18</span>
+      <span class="item-text">
+        Define <strong>three CSS Custom Properties</strong> on <code>:root</code>
+        for a color palette: a primary color, a secondary color, and a text color.
+        Then write <strong>two CSS rules</strong> that use those variables
+        (e.g., a heading and a button).
+      </span>
+    </div>
+    <div class="answer-box tall">
+      <div class="answer-label">Write your CSS here</div>
+    </div>
+  </div>
+  <hr class="item-divider" />
+
+  <!-- Item 19 -->
+  <div class="item">
+    <div class="item-header">
+      <span class="item-number">19</span>
+      <span class="item-text">
+        Write a <strong>mobile-first media query</strong> for a
+        <code>.hero</code> section. By default (mobile), the font-size should be
+        <code>1rem</code> and the layout should be a single column. At
+        <strong>768px and above</strong>, the font-size should become
+        <code>1.25rem</code> and the layout should switch to a 2-column grid.
+      </span>
+    </div>
+    <div class="answer-box tall">
+      <div class="answer-label">Write your CSS here</div>
+    </div>
+  </div>
+  <hr class="item-divider" />
+
+  <!-- Item 20 -->
+  <div class="item">
+    <div class="item-header">
+      <span class="item-number">20</span>
+      <span class="item-text">
+        Write the HTML structure for a <strong>blog post section</strong> using
+        correct HTML5 semantic elements. Include: a <code>&lt;section&gt;</code>
+        with an <code>aria-label</code>, an <code>&lt;article&gt;</code>,
+        a <code>&lt;header&gt;</code> with an <code>&lt;h2&gt;</code> heading,
+        a <code>&lt;p&gt;</code> body, and a <code>&lt;footer&gt;</code>
+        with an author byline. Use appropriate <code>role</code> or
+        <code>aria-*</code> attributes where relevant.
+      </span>
+    </div>
+    <div class="answer-box tall">
+      <div class="answer-label">Write your HTML here</div>
+    </div>
+  </div>
+
+  <!-- ══ DOCUMENT FOOTER ═══════════════════════════════════ -->
+  <footer class="doc-footer">
+    <span>MBTC · S9 Front-End Track · Advanced HTML &amp; CSS Activity</span>
+    <span>Total: 50 points &nbsp;|&nbsp; 20 Items</span>
+  </footer>
+
+</div><!-- /.page -->
+</body>
+</html>
