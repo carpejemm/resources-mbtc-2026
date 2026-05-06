@@ -1,0 +1,29 @@
+.pet-card {
+  border: 1px solid red;
+  padding: 10px;
+  margin: 10px;
+}
+
+.owner-card {
+  border: 1px solid blue;
+  padding: 10px;
+  margin: 10px;
+}
+
+.state-component {
+  border: 1px solid green;
+  padding: 10px;
+  margin: 10px;
+}
+
+.events-component {
+  border: 3px solid purple;
+  padding: 10px;
+  margin: 10px;
+}
+
+.conditionals-component {
+  border: 3px solid orange;
+  padding: 10px;
+  margin: 10px;
+}
