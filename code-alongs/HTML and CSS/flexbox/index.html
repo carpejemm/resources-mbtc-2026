@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flexbox</title>
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h2>Flexbox</h2>
+  <div>
+    <p>Flexbox is a CSS layout module that provides a more efficient way to lay out, align and distribute space among items in a container, even when their size is unknown or dynamic. It allows for responsive design and makes it easier to create complex layouts without using floats or positioning.</p>
+    <p>With Flexbox, you can control the direction of the layout (row or column), the alignment of items (start, end, center, space-between, etc.), and the order of items (using the order property). It also provides features like wrapping and flexible sizing of items.</p>
+    <p>To use Flexbox, you need to set the display property of the container to "flex". Then, you can use various flex properties on the container and its child items to control the layout. Some common properties include:</p>
+  </div>
+
+  <div class="parent-div">
+    <div class="child-div">Child 1</div>
+    <div class="child-div">Child 2</div>
+    <div class="child-div">Child 3</div>
+  </div>
+
+  <h3>flex-direction property</h3>
+  <ul>
+    <li>flex-direction: row | row-reverse | column | column-reverse;</li>
+  </ul>
+
+  <div class="example-div">
+    <h3>flex-direction property - row</h3>
+
+    <div class="parent-div row">
+      <div class="child-div">Child 1</div>
+      <div class="child-div">Child 2</div>
+      <div class="child-div">Child 3</div>
+    </div>
+  </div>
+  
+  <div class="example-div">
+    <h3>flex-direction property - row-reverse</h3>
+
+    <div class="parent-div row-reverse">
+      <div class="child-div">Child 1</div>
+      <div class="child-div">Child 2</div>
+      <div class="child-div">Child 3</div>
+    </div>
+  </div>
+
+  <div class="example-div">
+    <h3>flex-direction property - row</h3>
+
+    <div class="parent-div row">
+      <div class="child-div">Child 1</div>
+      <div class="child-div">Child 2</div>
+      <div class="child-div">Child 3</div>
+    </div>
+  </div>
+  
+  <div class="example-div">
+    <h3>flex-direction property - column</h3>
+
+    <div class="parent-div column">
+      <div class="child-div">Child 1</div>
+      <div class="child-div">Child 2</div>
+      <div class="child-div">Child 3</div>
+    </div>
+  </div>
+  
+  <div class="example-div">
+    <h3>flex-direction property - column-reverse</h3>
+
+    <div class="parent-div column-reverse">
+      <div class="child-div">Child 1</div>
+      <div class="child-div">Child 2</div>
+      <div class="child-div">Child 3</div>
+    </div>
+  </div>
+
+  <h3>flex-flow property</h3>
+  <ul>
+    <li>flex-flow: <em>flex-direction</em> <em>flex-wrap</em>;</li>
+  </ul>
+
+  <div class="example-div">
+    <h3>flex-flow property - row nowrap</h3>
+
+    <div class="parent-div row-nowrap">
+      <div class="child-div">Child 1</div>
+      <div class="child-div">Child 2</div>
+      <div class="child-div">Child 3</div>
+      <div class="child-div">Child 4</div>
+      <div class="child-div">Child 5</div>
+      <div class="child-div">Child 6</div>
+      <div class="child-div">Child 7</div>
+      <div class="child-div">Child 8</div>
+    </div>
+  </div>
+
+  <div class="example-div">
+    <h3>flex-flow property - row wrap</h3>
+
+    <div class="parent-div row-wrap">
+      <div class="child-div">Child 1</div>
+      <div class="child-div">Child 2</div>
+      <div class="child-div">Child 3</div>
+      <div class="child-div">Child 4</div>
+      <div class="child-div">Child 5</div>
+      <div class="child-div">Child 6</div>
+      <div class="child-div">Child 7</div>
+      <div class="child-div">Child 8</div>
+    </div>
+  </div>
+
+  <div class="example-div">
+    <h3>flex-flow property - column wrap</h3>
+
+    <div class="parent-div column-wrap">
+      <div class="child-div">Child 1</div>
+      <div class="child-div">Child 2</div>
+      <div class="child-div">Child 3</div>
+      <div class="child-div">Child 4</div>
+      <div class="child-div">Child 5</div>
+      <div class="child-div">Child 6</div>
+      <div class="child-div">Child 7</div>
+      <div class="child-div">Child 8</div>
+    </div>
+  </div>
+
+  <div class="example-div">
+    <h3>flex-flow property - column nowrap</h3>
+
+    <div class="parent-div column-nowrap">
+      <div class="child-div">Child 1</div>
+      <div class="child-div">Child 2</div>
+      <div class="child-div">Child 3</div>
+      <div class="child-div">Child 4</div>
+      <div class="child-div">Child 5</div>
+      <div class="child-div">Child 6</div>
+      <div class="child-div">Child 7</div>
+      <div class="child-div">Child 8</div>
+    </div>
+  </div>
+
+  <h3>flex-wrap property</h3>
+  <ul>
+    <li>flex-wrap: nowrap | wrap | wrap-reverse;</li>
+  </ul>
+  
+  <div class="example-div">
+    <h3>flex-wrap property - nowrap</h3>
+
+    <div class="parent-div nowrap">
+      <div class="child-div">Child 1</div>
+      <div class="child-div">Child 2</div>
+      <div class="child-div">Child 3</div>
+      <div class="child-div">Child 4</div>
+      <div class="child-div">Child 5</div>
+      <div class="child-div">Child 6</div>
+      <div class="child-div">Child 7</div>
+      <div class="child-div">Child 8</div>
+    </div>
+  </div>
+
+  <div class="example-div">
+    <h3>flex-wrap property - wrap</h3>
+
+    <div class="parent-div wrap">
+      <div class="child-div">Child 1</div>
+      <div class="child-div">Child 2</div>
+      <div class="child-div">Child 3</div>
+      <div class="child-div">Child 4</div>
+      <div class="child-div">Child 5</div>
+      <div class="child-div">Child 6</div>
+      <div class="child-div">Child 7</div>
+      <div class="child-div">Child 8</div>
+    </div>
+  </div>
+
+  <div class="example-div">
+    <h3>flex-wrap property - wrap-reverse</h3>
+
+    <div class="parent-div wrap-reverse">
+      <div class="child-div">Child 1</div>
+      <div class="child-div">Child 2</div>
+      <div class="child-div">Child 3</div>
+      <div class="child-div">Child 4</div>
+      <div class="child-div">Child 5</div>
+      <div class="child-div">Child 6</div>
+      <div class="child-div">Child 7</div>
+      <div class="child-div">Child 8</div>
+    </div>
+  </div>
+
+  <h3>justify-content property</h3>
+  <ul>
+    <li>justify-content: flex-start | flex-end | center | space-between | space-around | space-evenly;</li>
+  </ul>
+
+  <div class="example-div">
+    <h3>justify-content property - flex-start</h3>
+
+    <div class="parent-div justify-content-flex-start">
+      <div class="child-div">Child 1</div>
+      <div class="child-div">Child 2</div>
+      <div class="child-div">Child 3</div>
+    </div>
+  </div>
+
+  <div class="example-div">
+    <h3>justify-content property - flex-end</h3>
+
+    <div class="parent-div justify-content-flex-end">
+      <div class="child-div">Child 1</div>
+      <div class="child-div">Child 2</div>
+      <div class="child-div">Child 3</div>
+    </div>
+  </div>
+
+  <div class="example-div">
+    <h3>justify-content property - center</h3>
+
+    <div class="parent-div justify-content-center">
+      <div class="child-div">Child 1</div>
+      <div class="child-div">Child 2</div>
+      <div class="child-div">Child 3</div>
+    </div>
+  </div>
+
+  <div class="example-div">
+    <h3>justify-content property - space-between</h3>
+
+    <div class="parent-div justify-content-space-between">
+      <div class="child-div-1">Child 1</div>
+      <div class="child-div">Child 2</div>
+      <div class="child-div">Child 3</div>
+    </div>
+  </div>
+
+  <div class="example-div">
+    <h3>justify-content property - space-around</h3>
+
+    <div class="parent-div justify-content-space-around">
+      <div class="child-div-1">Child 1</div>
+      <div class="child-div">Child 2</div>
+      <div class="child-div">Child 3</div>
+    </div>
+  </div>
+
+  <div class="example-div">
+    <h3>justify-content property - space-evenly</h3>
+
+    <div class="parent-div justify-content-space-evenly">
+      <div class="child-div-1">Child 1</div>
+      <div class="child-div">Child 2</div>
+      <div class="child-div-1">Child 3</div>
+    </div>
+  </div>
+
+  <h3>align-items property</h3>
+  <ul>
+    <li>align-items: flex-start | flex-end | center | baseline | stretch;</li>
+  </ul>
+
+  <div class="example-div">
+    <h3>align-items property - flex-start</h3>
+
+    <div class="parent-div example-div-1 align-items-flex-start">
+      <div class="child-div-1">Child 1</div>
+      <div class="child-div">Child 2</div>
+      <div class="child-div-1">Child 3</div>
+      <div class="child-div">Child 4</div>
+      <div class="child-div">Child 5</div>
+      <div class="child-div">Child 6</div>
+      <div class="child-div">Child 7</div>
+      <div class="child-div">Child 8</div>
+    </div>
+  </div>
+
+  <div class="example-div">
+    <h3>align-items property - flex-end</h3>
+
+    <div class="parent-div example-div-1 align-items-flex-end">
+      <div class="child-div-1">Child 1</div>
+      <div class="child-div">Child 2</div>
+      <div class="child-div-1">Child 3</div>
+      <div class="child-div">Child 4</div>
+      <div class="child-div">Child 5</div>
+      <div class="child-div">Child 6</div>
+      <div class="child-div">Child 7</div>
+      <div class="child-div">Child 8</div>
+    </div>
+  </div>
+
+  <div class="example-div">
+    <h3>align-items property - center</h3>
+
+    <div class="parent-div example-div-1 align-items-center">
+      <div class="child-div-1">Child 1</div>
+      <div class="child-div">Child 2</div>
+      <div class="child-div-2">Child 3</div>
+      <div class="child-div">Child 4</div>
+      <div class="child-div">Child 5</div>
+      <div class="child-div">Child 6</div>
+      <div class="child-div">Child 7</div>
+      <div class="child-div">Child 8</div>
+    </div>
+  </div>
+
+  <div class="example-div">
+    <h3>align-items property - baseline</h3>
+
+    <div class="parent-div example-div-1 align-items-baseline">
+      <div class="child-div-1">Child 1</div>
+      <div class="child-div">Child 2</div>
+      <div class="child-div-2">Child 3</div>
+      <div class="child-div">Child 4</div>
+      <div class="child-div">Child 5</div>
+      <div class="child-div-3">Child 6</div>
+      <div class="child-div">Child 7</div>
+      <div class="child-div-4">Child 8</div>
+    </div>
+  </div>
+
+  <div class="example-div">
+    <h3>align-items property - stretch</h3>
+
+    <div class="parent-div example-div-1 align-items-stretch">
+      <div class="child-div-1">Child 1</div>
+      <div class="child-div">Child 2</div>
+      <div class="child-div-2">Child 3</div>
+      <div class="child-div">Child 4</div>
+      <div class="child-div">Child 5</div>
+      <div class="child-div-3">Child 6</div>
+      <div class="child-div">Child 7</div>
+      <div class="child-div-5">Child 8</div>
+    </div>
+  </div>
+
+  <h3>order property</h3>
+  <ul>
+    <li>order: <em>integer</em>;</li>
+  </ul>
+
+  <div class="example-div">
+    <h3>order property</h3>
+
+    <div class="parent-div">
+      <div class="child-div-1 order8">Child 1</div>
+      <div class="child-div order5">Child 2</div>
+      <div class="child-div-2 order6">Child 3</div>
+      <div class="child-div order7">Child 4</div>
+      <div class="child-div order1">Child 5</div>
+      <div class="child-div-3 order3">Child 6</div>
+      <div class="child-div order4">Child 7</div>
+      <div class="child-div-5 order2">Child 8</div>
+    </div>
+  </div>
+
+  <div class="example-div">
+    <h3>order property</h3>
+
+    <div class="parent-div">
+      <div class="child-div-1 order-1">Child 1</div>
+      <div class="child-div order-2">Child 2</div>
+      <div class="child-div-2 order-3">Child 3</div>
+    </div>
+  </div>
+
+  <h3>flex-grow property</h3>
+  <ul>
+    <li>flex-grow: <em>number</em>;</li>
+  </ul>
+
+  <div class="example-div">
+    <h3>flex-grow property</h3>
+
+    <div class="parent-div">
+      <div class="child-div item-1">Child 1</div>
+      <div class="child-div item-2">Child 2</div>
+      <div class="child-div item-3">Child 3</div>
+      <div class="child-div item-4">Child 4</div>
+      <div class="child-div item-5">Child 5</div>
+      <div class="child-div item-6">Child 6</div>
+      <div class="child-div item-10">Child 10</div>
+
+    </div>
+  </div>
+
+
+  <h3>align-self property</h3>
+  <ul>
+    <li>align-self: auto | flex-start | flex-end | center | baseline | stretch;</li>
+  </ul>
+
+  <div class="example-div">
+    <h3>align-self property - flex-start</h3>
+
+    <div class="parent-div example-div-1 align-items-center">
+      <div class="child-div">Child 1</div>
+      <div class="child-div">Child 2</div>
+      <div class="child-div">Child 3</div>
+      <div class="child-div">Child 4</div>
+      <div class="child-div">Child 5</div>
+      <div class="child-div">Child 6</div>
+      <div class="child-div align-self-flex-start">Child 7</div>
+      <div class="child-div">Child 8</div>
+    </div>
+  </div>
+
+  <div class="example-div">
+    <h3>align-self property - flex-end</h3>
+
+    <div class="parent-div example-div-1 align-items-center">
+      <div class="child-div">Child 1</div>
+      <div class="child-div">Child 2</div>
+      <div class="child-div">Child 3</div>
+      <div class="child-div">Child 4</div>
+      <div class="child-div">Child 5</div>
+      <div class="child-div">Child 6</div>
+      <div class="child-div align-self-flex-end">Child 7</div>
+      <div class="child-div">Child 8</div>
+    </div>
+  </div>
+
+  <div class="example-div">
+    <h3>align-self property - center</h3>
+
+    <div class="parent-div example-div-1 align-items-flex-end">
+      <div class="child-div">Child 1</div>
+      <div class="child-div">Child 2</div>
+      <div class="child-div">Child 3</div>
+      <div class="child-div">Child 4</div>
+      <div class="child-div">Child 5</div>
+      <div class="child-div">Child 6</div>
+      <div class="child-div align-self-center">Child 7</div>
+      <div class="child-div">Child 8</div>
+    </div>
+  </div>
+
+  <div class="example-div">
+    <h3>align-self property - baseline</h3>
+
+    <div class="parent-div example-div-1 align-items-flex-end">
+      <div class="child-div">Child 1</div>
+      <div class="child-div">Child 2</div>
+      <div class="child-div">Child 3</div>
+      <div class="child-div">Child 4</div>
+      <div class="child-div align-self-baseline">Child 5</div>
+      <div class="child-div">Child 6</div>
+      <div class="child-div">Child 7</div>
+      <div class="child-div-4">Child 8</div>
+    </div>
+  </div>
+
+  <div class="example-div">
+    <h3>align-self property - stretch</h3>
+
+    <div class="parent-div example-div-1 align-items-flex-end">
+      <div class="child-div align-self-stretch">Child 1</div>
+      <div class="child-div align-self-stretch">Child 2</div>
+      <div class="child-div">Child 3</div>
+      <div class="child-div">Child 4</div>
+      <div class="child-div align-self-stretch">Child 5</div>
+      <div class="child-div">Child 6</div>
+      <div class="child-div">Child 7</div>
+      <div class="child-div-4">Child 8</div>
+    </div>
+  </div>
+
+  <div class="example-div">
+    <h3>align-self property - auto</h3>
+
+    <div class="parent-div example-div-1 align-items-flex-start">
+      <div class="child-div align-self-auto">Child 1</div>
+      <div class="child-div align-self-auto">Child 2</div>
+      <div class="child-div">Child 3</div>
+      <div class="child-div">Child 4</div>
+      <div class="child-div align-self-auto">Child 5</div>
+      <div class="child-div">Child 6</div>
+      <div class="child-div">Child 7</div>
+      <div class="child-div-4">Child 8</div>
+    </div>
+  </div>
+
+
+
+
+
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+</body>
+</html>

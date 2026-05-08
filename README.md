@@ -13,12 +13,12 @@ A 4-day introduction to ReactJS for MBTC trainees, delivered in partnership with
 resources-mbtc-2026/
 ├── activities/                 Hands-on exercises for trainees
 │   ├── activity-1/             HTML/CSS landing-page activity
-│   ├── activity-2/             PDF-based assignment
-│   ├── activity-3/             PDF-based assignment
-│   ├── activity-4/             PDF-based assignment
-│   ├── activity-5/             PDF-based assignment
-│   ├── activity-6/             PDF-based assignment
-│   └── activity-7/             PDF-based assignment
+│   ├── activity-2/             React JSX — form & product list
+│   ├── activity-3/             Reusable components & props
+│   ├── activity-4/             React hooks (useState/useEffect/useContext/useReducer)
+│   ├── activity-5/             React Router + fetch/axios + Tailwind CSS
+│   ├── activity-6/             Redux Toolkit refactor of activity-5
+│   └── activity-7/             Vitest tests + Netlify deployment
 ├── code-alongs/                Instructor-led demos
 │   ├── HTML and CSS/           Pre-React HTML/CSS examples
 │   ├── git-github-intro/       Git & GitHub warm-up snippets
@@ -29,6 +29,7 @@ resources-mbtc-2026/
 │   ├── react-fetch-api-axios/  Calling APIs with fetch and Axios
 │   ├── react-router/           Client-side routing with React Router
 │   ├── react-redux/            Global state with Redux Toolkit
+│   ├── react-unit-testing-vitest/  Unit testing components with Vitest
 │   ├── react-pokedex/          Pokédex demo (API + routing + UI)
 │   └── todo-app/               Todo app (Vite + React, components & state)
 ├── test-project/               Vite + React sandbox project
@@ -55,6 +56,7 @@ Quick links:
   - [react-fetch-api-axios/](code-alongs/react-fetch-api-axios/)
   - [react-router/](code-alongs/react-router/)
   - [react-redux/](code-alongs/react-redux/)
+  - [react-unit-testing-vitest/](code-alongs/react-unit-testing-vitest/)
   - [react-pokedex/](code-alongs/react-pokedex/)
   - [todo-app/](code-alongs/todo-app/)
 - [test-project/](test-project/)
@@ -96,7 +98,7 @@ The code-along projects use **two different toolchains** — pick the matching c
 
 ### Vite projects — `npm run dev`
 
-Applies to: `my-first-react-app`, `react-data`, `react-hooks`, `react-fetch-api-axios`, `react-router`, `react-redux`, `react-pokedex`, and the root-level `test-project`.
+Applies to: `my-first-react-app`, `react-data`, `react-hooks`, `react-fetch-api-axios`, `react-router`, `react-redux`, `react-unit-testing-vitest`, `react-pokedex`, and the root-level `test-project`.
 
 ```bash
 cd code-alongs/<project-name>   # or: cd test-project
@@ -126,6 +128,15 @@ npm start
 
 The dev server opens automatically at `http://localhost:3000`.
 
+### Running tests (`react-unit-testing-vitest`)
+
+This code-along ships with sample component tests powered by Vitest and React Testing Library. After the standard Vite install/dev steps above, you can also run:
+
+```bash
+cd code-alongs/react-unit-testing-vitest
+npm test
+```
+
 > All React sub-projects use **React 19.2.5**. The `HTML and CSS/` and `git-github-intro/` folders are plain static files — open them directly in your editor or browser, no install step.
 
 ---
@@ -135,12 +146,12 @@ The dev server opens automatically at `http://localhost:3000`.
 Trainee work lives under [activities/](activities/):
 
 - **[activity-1/](activities/activity-1/)** — HTML/CSS landing-page activity. Open the folder and follow the instructions in the included files.
-- **[activity-2/](activities/activity-2/)** — PDF-based assignment. Open the PDF and complete the tasks as described.
-- **[activity-3/](activities/activity-3/)** — PDF-based assignment.
-- **[activity-4/](activities/activity-4/)** — PDF-based assignment.
-- **[activity-5/](activities/activity-5/)** — PDF-based assignment.
-- **[activity-6/](activities/activity-6/)** — PDF-based assignment.
-- **[activity-7/](activities/activity-7/)** — PDF-based assignment.
+- **[activity-2/](activities/activity-2/)** — React JSX warm-up: build a form (first/last name, email, password) and a product list with images, titles, and prices.
+- **[activity-3/](activities/activity-3/)** — Components & props: build reusable `Input`, `Card`, `Alert`, and `Rating` components.
+- **[activity-4/](activities/activity-4/)** — React Hooks practice: `useState` (LightSwitch, ColorPicker), `useEffect` (MousePosition, RandomColor), `useContext` (virtual classroom), and `useReducer` (Form).
+- **[activity-5/](activities/activity-5/)** — React Router + API + Tailwind: Home/Users/Posts/Post Details/About pages using `fetch` and `axios` against jsonplaceholder.
+- **[activity-6/](activities/activity-6/)** — Redux Toolkit refactor of activity-5: slices, `createAsyncThunk`, `useSelector`/`useDispatch`.
+- **[activity-7/](activities/activity-7/)** — Vitest + React Testing Library tests, then deploy the app to Netlify.
 
 Work through each activity in your own copy of the repo, and reach out to the instructor if you get stuck.
 
@@ -150,6 +161,7 @@ Work through each activity in your own copy of the repo, and reach out to the in
 
 - **Day 2 (May 6, 2026)** — [Watch recording](https://drive.google.com/file/d/1DOnBP70g6ObicRyh_AYu21bMCCOSG-Z5/view?usp=sharing)
 - **Day 3 (May 7, 2026)** — [Watch recording](https://drive.google.com/file/d/1dLeVEPehzL0bTIrz1cUnuUvk2rsPVY_u/view?usp=sharing)
+- **Day 4 (May 8, 2026)** — [Watch recording](https://drive.google.com/file/d/1K0kedGD4E23e3TMFBTbDIyz0RJvW5yQQ/view?usp=sharing)
 
 ---
 
