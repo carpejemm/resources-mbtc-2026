@@ -33,7 +33,7 @@ resources-mbtc-2026/
 │   ├── react-pokedex/          Pokédex demo (API + routing + UI)
 │   └── todo-app/               Todo app (Vite + React, components & state)
 ├── test-project/               Vite + React sandbox project
-└── slides/                     Slide decks for the cohort (TBD — added during sessions)
+└── slides/                     Slide decks for the cohort (Day 1–4 combined deck PDF)
 ```
 
 Quick links:
@@ -60,7 +60,7 @@ Quick links:
   - [react-pokedex/](code-alongs/react-pokedex/)
   - [todo-app/](code-alongs/todo-app/)
 - [test-project/](test-project/)
-- [slides/](slides/) — *decks added during sessions*
+- [slides/](slides/) — [Day 1–4 combined deck (PDF)](slides/%5BDay%201%20-%204%5D%20TRAINOSYS%20X%20METROBANK%20ReactJS%20Training%20Course.pdf)
 
 ---
 
@@ -154,6 +154,12 @@ Trainee work lives under [activities/](activities/):
 - **[activity-7/](activities/activity-7/)** — Vitest + React Testing Library tests, then deploy the app to Netlify.
 
 Work through each activity in your own copy of the repo, and reach out to the instructor if you get stuck.
+
+---
+
+## Slides
+
+- **Day 1–4 combined deck (PDF)** — [Open slide deck](slides/%5BDay%201%20-%204%5D%20TRAINOSYS%20X%20METROBANK%20ReactJS%20Training%20Course.pdf)
 
 ---
 
